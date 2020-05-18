@@ -95,14 +95,20 @@ const ChatsList: React.FC = () => {
       <StyledList>
         {chats.map((chat) => (
           <StyledListItem key={chat.id} button>
-            <ChatPicture src={chat.picture} alt="Profile" />
+            <ChatPicture
+              data-testid="picture"
+              src={chat.picture}
+              alt="Profile"
+            />
             <ChatInfo>
-              <ChatName>{chat.name}</ChatName>
+              <ChatName data-testid="name">{chat.name}</ChatName>
               {chat.lastMessage && (
                 <React.Fragment>
-                  <MessageContent>{chat.lastMessage.content}</MessageContent>
-                  <MessageDate>
-                    {moment(chat.lastMessage.createdAt).format('HH:mm')}
+                  <MessageContent data-testid="content">
+                    {chat.lastMessage.content}
+                  </MessageContent>
+                  <MessageDate data-testid="date">
+                    {moment.utc(chat.lastMessage.createdAt).format('HH:mm')}
                   </MessageDate>
                 </React.Fragment>
               )}

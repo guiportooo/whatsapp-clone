@@ -50,7 +50,7 @@ const ChatNavbar: React.FC<ChatNavbarProps> = ({ chat, history }) => {
         <ArrowBackIcon />
       </BackButton>
       <Picture src={chat.picture} />
-      <Name>{chat.name}</Name>
+      <Name data-testid="chat-name">{chat.name}</Name>
     </Container>
   );
 };
